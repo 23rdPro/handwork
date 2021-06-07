@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>{{worker.user}}</p>
+{% if worker.is_approved %}
+<p>Your account has been certified</p>
+{% else %}
+<p>Your account is pending certification</p>
+{% endif %}
+
+{% if worker.user.avatar %}
+<p><img src="{{ worker.user.avatar.url }}" alt=""></p>
+{% endif %}
+<p>{{ worker.user.mobile }}</p>
+
+{% if worker.is_approved %}
+<p>Approved: {{ worker.is_approved }}</p>
+<p>Engaged: {{worker.is_engaged}}</p>
+<p>Industry: {{ worker.get_industry_display }}</p>
+<p>Qualifications: {{ worker.qualifications }}</p>
+<p>Address: {{ worker.address }}</p>
+<p>Sales pitch: {{ worker.sales_pitch }}</p>
+
+{% else %}
+<p>Please <a href="{{ worker.get_update_url }}">click</a> to update your profile if you haven't, we will contact
+you when we're done with our verification</p>
+{% endif %}
+
+{% endblock %}

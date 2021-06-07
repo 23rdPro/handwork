@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h4>Welcome {{ user }}</h4>
+    {% if user.is_client %}
+        <p>Time to explore our <span><a href="{{ user.get_absolute_url }}">hub</a></span></p>
+    {% elif user.is_worker %}
+        <p> Update your <span><a href="">Business Profile</a></span></p>
+    {% endif %}
+</div>
+{% endblock %}

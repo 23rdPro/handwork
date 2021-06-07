@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>{{client.user}}</p>
+{% if client.user.avatar %}
+<p><img src="{{ client.user.avatar.url }}" alt=""></p>
+{% endif %}
+<p>{{ client.user.mobile }}</p>
+<p>{{ client.user.name }}</p>
+
+
+{% endblock %}
